@@ -1,25 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import AddField from './Components/AddField';
+import ButtonAddTask from './Components/ButtonAddTask';
+import Header from './Components/Header';
+import ListTasks from './Components/ListTasks';
+import Search from './Components/Search';
+import Sort from './Components/Sort';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	let tasks = [
+		{id : 1, name: 'HOc Tieng Anh', level: 0},
+		{id : 2, name: 'Hoc React', level: 2},
+		{id : 3, name: 'Hoc Toan cao cap', level: 3},
+		{id : 4, name: 'Hoc Toan cao cap', level: 3},
+	];
+	return (
+		<div className="container">
+			<Header />
+			<div className="row">
+				<Search/>
+				<Sort/>
+				<ButtonAddTask />
+			</div>
+			<div className="row">
+			<AddField/>
+			</div>
+			<div className="panel panel-success">
+				<div className="panel-heading">List Task</div>
+				<ListTasks tasks = {tasks}/>
+			</div>
+		</div>
+	);
 }
 
 export default App;
